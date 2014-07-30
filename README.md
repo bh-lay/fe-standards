@@ -23,3 +23,30 @@
 <meta name="description" content="杀毒软件免费下载 2012之全新金山毒霸2012今天正式发布alpha版本，马上报名体验，先睹为快！" />
 
 ````
+2.两种合理引入`js`的方法
+
+* (1)在head内使用动态创建script标签的方式引入js，实现异步加载
+
+```
+<head>
+<script type="text/javascript">var s = document.createElement("script"), h = document.getElementsByTagName("head")[0];s.type = "text/javascript";s.async = true;s.src = "min.base.js";h.appendChild(s);</script>
+</head>
+```
+* (2)在底部`</body>`前使用同步加载的方式
+
+```
+<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21555299"></script>
+</body>
+```
+
+* (3)标签语义化；代码简洁化；必要的注释；适当考虑内容的重要程度来安排文档流的先后顺序
+* (4)移动端站点极度追求简洁，比如导航代码通常一个容器内编写一系列a标签即可，不必再写ul、li什么的，如
+
+```
+<div class=”nav”>
+<a href=”#”>首页</a>
+<a href=”#”>关于我们</a>
+</div>
+```
+* (5)允许代码缩进，但须以一个tab等于4个空格来设置
+* (6)可见的内联标签禁止换行书写，避免多人合作内联或者内联块状标签间的空白带来的问题，如下面是不太合理的
