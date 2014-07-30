@@ -4,8 +4,8 @@
 
 ##一.文件相关
 
-1. 文件名以英文为主，可以使用下划线(如active.html)，在后端开发前的html页面如果数量比较多，为了方便寻找，可以使用数字+中文的形式(直观并且可以自动排序)；压缩包以项目名+日期的形式
-2. 一律使用utf-8编码
+1. 文件名以英文为主，可以使用下划线(如`active.html`)，在后端开发前的html页面如果数量比较多，为了方便寻找，可以使用数字+中文的形式(直观并且可以自动排序)；压缩包以项目名+日期的形式
+2. 一律使用`utf-8`编码
 3. html、css、js发布到线上都需要压缩
 4. 在追求高度优化的站点，需要对图片也进行无损压缩
 
@@ -29,7 +29,12 @@
 
 ```
 <head>
-<script type="text/javascript">var s = document.createElement("script"), h = document.getElementsByTagName("head")[0];s.type = "text/javascript";s.async = true;s.src = "min.base.js";h.appendChild(s);</script>
+<script type="text/javascript">
+    var s = document.createElement("script"), 
+    h = document.getElementsByTagName("head")[0];
+    s.type = "text/javascript";s.async = true;
+    s.src = "min.base.js";h.appendChild(s);
+</script>
 </head>
 ```
 * (2)在底部`</body>`前使用同步加载的方式
@@ -50,3 +55,62 @@
 ```
 * (5)允许代码缩进，但须以一个tab等于4个空格来设置
 * (6)可见的内联标签禁止换行书写，避免多人合作内联或者内联块状标签间的空白带来的问题，如下面是不太合理的
+
+```
+<!--不合理的代码-->
+<div>
+<span>test1</span>
+<span>test2</span>
+<a href=”#”>test3</a>
+</div>
+
+<!--合理的代码-->
+<div><span>test1</span><span>test2</span><a href=”#”>test3</a></div>
+
+```
+* (7)页面中的引号统一使用双引号`"`
+
+##CSS相关
+
+可参考[人人网FED CSS规范](https://app.yinxiang.com/shard/s9/sh/f98d6c2b-0dc0-4f82-b489-8d0ab1296162/44c104cf7133c56392e4b34345c03690)
+
+####常用命名
+
+####注释
+
+1. 文件顶部注释
+
+```
+/*
+* @description: xxxxx中文说明
+* @author: sunshilang
+* @update: 2012-10-17 18:32
+*/
+```
+
+2. 模块注释(推荐使用)
+
+```
+/* module: module1 by sunshilang */
+
+/* module: module2 by sunshilang */
+```
+
+3. 3.编码风格
+* (1)一个tab设置为四个空格宽度。
+* (2)规则可以写成单行，或者多行，但是整个文件内的规则排版必须统一。如果是在html中写内联的css，则必须写成单行。
+* (3)单行形式书写风格的排版约束
+    a. 每一条规则的大括号` { `前后加空格 
+    b. 多个selector共用一个样式集，则多个selector必须写成多行形式
+    c. 每一条规则结束的大括号 ` } ` 前加空格
+    d. 属性名冒号之前不加空格，冒号之后加空格
+    e. 每一个属性值后必须添加分号; 并且分号后空格
+
+```
+div.test { width: 100px; height: 200px; }
+a:focus, a:hover { position: relative; right: 1px; }
+```
+
+4. 4.多行形式书写风格的排版约束
+
+
