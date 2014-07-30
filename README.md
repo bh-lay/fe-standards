@@ -112,5 +112,162 @@ a:focus, a:hover { position: relative; right: 1px; }
 ```
 
 4. 4.多行形式书写风格的排版约束
+* (1)每一条规则的大括号 { 前添加空格
+* (2)多个selector共用一个样式集，则多个selector必须写成多行形式
+* (3)每一条规则结束的大括号 } 必须与规则选择器的第一个字符对齐
+* (4)属性名冒号之前不加空格，冒号之后加空格
+* (5)属性值之后添加分号;
+4. 4.其他规范
+* (1)使用单引号，不允许使用双引号
+* (2)如果使用CSS3的属性，如果有必要加入浏览器前缀，则按照
+
+```
+-webkit- / -moz- / -ms- / -o- / std
+
+```
+的顺序进行添加，标准属性写在最后，并且属性名称要对齐，例如：
+
+```	
+div.animation-demo {
+    -webkit-animation: mymove 5s infinite; 
+       -moz-animation: mymove 5s infinite; 
+         -o-animation: mymove 5s infinite; 
+            animation: mymove 5s infinite;
+}
+```
+5. 5.书写格式
+* (1)规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或 _
+* (2)命名避免使用拼音，应该采用更简明有语义的英文单词进行组合
+* (3)命名注意缩写，但是不能盲目缩写，具体请参见常用的CSS命名规则
+* (4)不允许通过1、2、3等序号进行命名
+* (5)避免class与id重名
+* (6)id用于标识模块或页面的某一个父容器区域，名称必须唯一，不要随意新建id
+* (7)class用于标识某一个类型的对象，命名必须言简意赅。
+* (8)尽可能提高代码模块的复用，样式尽量用组合的方式
+* (9)避免直接给标签设置样式
+7. 7.属性书写顺序
+
+####推荐的样式编写顺序
+1. 显示属性
+```
+display/list-style/position/float/clear
+```
+2. 自身属性（盒模型）
+
+```
+width/height/margin/padding/border
+```
+
+3. 背景
+```
+background
+```
+(4)行高
+```
+line-height
+```
+(5)文本属性
+```
+color/font/text-decoration/text-align/
+text-indent/vertical-align/white-space/content
+```
+(6)其他
+```
+cursor/z-index/zoom
+```
+(7)CSS3属性
+```
+transform/transition/animation/box-shadow/border-radius
+```
+(8)链接的样式请严格按照如下顺序添加：
+```
+a:link -> a:visited -> a:hover -> a:active（LoVeHAte）
+```
+
+8. css优化
+* (1)合并margin、padding、border的-left/-top/-right/-bottom的设置，尽量使用短名称。
+* (2)选择器应该在满足功能的基础上尽量简短，减少选择器嵌套，查询消耗。但是一定要避免覆盖全局样式设置。
+* (3)注意选择器的性能，不要使用低性能的选择器，例如：
+```
+div > * {}
+ul > li > a {}
+body.profile ul.tabs.nav li a {}
+```
+* (4)禁止在css中使用*选择符
+* (5)除非必须，否则，一般有class或id的，不需要再写上元素对应的tag，例如：
+```
+div#test { width: 100px; }
+```
+* (6)0后面不需要单位，比如0px可以省略成0，0.8px可以省略成.8px
+* (7)如果可以，颜色尽量用三位字符表示，例如#aabbcc写成#abc
+* (8)如果没有边框时，不要写成border:0，应该写成border:none
+* (9)尽量避免使用AlphaImageLoader
+* (10)在保持代码解耦的前提下，尽量合并重复的样式，例如：
+```
+h1 { color: black; }
+p { color: black; }
+h1, p { color: black; }
+````
+background、font等可以缩写的属性，尽量使用缩写形式
+```
+background: color image repeat attachment position;
+font: style weight size/lineHeight family;
+```
+9. 9.hack使用规范
+重要原则：尽量少用hack，能不hack坚决不hack，不允许滥用hack。
+如果需要使用hack，请参考以下hack方式：
+```
+padding:10px;
+padding:9px\9; /*IE*/
+padding:8px\0; /*IE8-IE9*/
+*padding:5px; /*IE6-IE7*/
+_padding:4px; /*IE6*/
+firefox	@-moz-document url-prefix() { … }
+```
+##四.javascript相关
+####1.变量名
+
+* (1)普通局部变量小写英文，如果需要组合，使用驼峰命名写法
+```
+var siteMap;
+```
+* (2)全局变量，首字母大写
+```
+var SiteMap;
+```
+* (3)全局常量，全部大写
+```
+var SITE_MAP;
+```
+* (4)dom对象，家el前缀
+```
+var elSite = $(‘#site’);
+```
+####2.类名首字母大写
+
+```
+var Site = {
+	init: function() {
+
+}
+} 
+```
+####3.空格
+标点后面加一个空格，前面不加空格; 操作符前后各加一个空格; 
+```
+//不规范
+for (var i=0;i<l;i++) {
+} 
+
+//规范
+for (var i = 0; i < l; i++) { 
+} 
+
+```
+
+
+
+
+
 
 
