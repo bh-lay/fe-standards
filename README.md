@@ -239,7 +239,7 @@ var SiteMap;
 ```
 var SITE_MAP;
 ```
-* (4)dom对象，家el前缀
+* (4)dom对象，加el前缀
 ```
 var elSite = $(‘#site’);
 ```
